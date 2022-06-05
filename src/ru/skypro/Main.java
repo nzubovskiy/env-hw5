@@ -29,13 +29,13 @@ public class Main {
         if (login.length() >= 20) {
             throw new WrongLoginException("Неверный login. Превышена допустимая длина поля Login 19 символолов");
         }
-        if (login.matches("[А-Я]+")) {
+        if (!login.matches("[A-z0-9_]+")) {
             throw new WrongLoginException("Неверный login. Login должен содержать только латинские буквы, цифры и знак подчеркивания");
         }
         if (password.length() >= 20) {
             throw new WrongPasswordExtension("Неверный пароль. Превышена допустимая длина пароля 19 символов");
         }
-        if (password.matches("[А-Я]+")) {
+        if (!password.matches("[A-z0-9_]+")) {
             throw new WrongPasswordExtension("Неверный пароль. Пароль должен содержать только латинские буквы, цифры и знак подчеркивания");
         }
         if (!confirmPassword.equals(password)) {
